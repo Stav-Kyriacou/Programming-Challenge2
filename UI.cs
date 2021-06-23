@@ -37,10 +37,10 @@ namespace CivSem1Challenge2_RegistrationSystem
             switch(input) {
 
                 case "1":
-                    //TODO: from the attribute this.Courses, print the courseNo and names of all of the courses
-                    // use GetCourseDetails to do this
-
-                    //----------
+                    foreach (var course in this.Courses)
+                    {
+                        Console.WriteLine(course.GetCourseDetails());
+                    }
                     break;
                 
                 case "2":
