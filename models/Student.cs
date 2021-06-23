@@ -1,5 +1,7 @@
-namespace CivSem1Challenge2_RegistrationSystem.models {
-    public class Student : Person {
+namespace CivSem1Challenge2_RegistrationSystem.models
+{
+    public class Student : Person
+    {
         public int StudentNo { get; set; }
         public int FirstRegistrationYear { get; set; }
 
@@ -9,12 +11,12 @@ namespace CivSem1Challenge2_RegistrationSystem.models {
             this.FirstRegistrationYear = firstRegistrationYear;
         }
 
-        public string GetFullName() {
-            //TODO:  return FirstName and Surname with a space in between
-            return $"Daffy Duck";
+        public string GetFullName()
+        {
+            return $"{this.FirstName} {this.Surname}";
         }
 
-        
+
 
     }
 }
