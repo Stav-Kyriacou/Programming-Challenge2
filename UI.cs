@@ -10,14 +10,16 @@ namespace CivSem1Challenge2_RegistrationSystem
     {
         public List<Course> Courses { get; set; }
         public List<Student> Students { get; set; }
-        public UI() {
+        public UI()
+        {
             DataHandler dh = new DataHandler();
             this.Courses = dh.GetCourses();
             this.Students = dh.GetStudents();
             TopMenu();
         }
 
-        public void TopMenu() {
+        public void TopMenu()
+        {
             Console.WriteLine("Welcome to Dod&Gy Student Reg system - Alpha ver");
 
             Console.WriteLine("1. Print the names and courseNo of the courses");
@@ -34,7 +36,8 @@ namespace CivSem1Challenge2_RegistrationSystem
 
             var input = Console.ReadLine();
 
-            switch(input) {
+            switch (input)
+            {
 
                 case "1":
                     foreach (var course in this.Courses)
@@ -42,16 +45,18 @@ namespace CivSem1Challenge2_RegistrationSystem
                         Console.WriteLine(course.GetCourseDetails());
                     }
                     break;
-                
+
                 case "2":
                     System.Console.WriteLine("Please enter the course number");
                     int num;
-                    while(!int.TryParse(Console.ReadLine(), out num)) {
+                    while (!int.TryParse(Console.ReadLine(), out num))
+                    {
                         System.Console.WriteLine("Invalid, enter again");
                     }
 
                     int numStudents = this.CourseGetNumStudents(num);
-                    if(numStudents == -1) {
+                    if (numStudents == -1)
+                    {
                         System.Console.WriteLine($"Course {num} doesn't exist");
                         break;
                     }
@@ -60,12 +65,14 @@ namespace CivSem1Challenge2_RegistrationSystem
 
                 case "3":
                     System.Console.WriteLine("Please enter a student number");
-                    while(!int.TryParse(Console.ReadLine(), out num)) {
+                    while (!int.TryParse(Console.ReadLine(), out num))
+                    {
                         System.Console.WriteLine("Invalid, enter again");
                     }
 
                     string studentName = this.GetStudentName(num);
-                    if(studentName == null) {
+                    if (studentName == null)
+                    {
                         System.Console.WriteLine($"Student {num} doesn't exist");
                         break;
                     }
@@ -79,24 +86,26 @@ namespace CivSem1Challenge2_RegistrationSystem
 
                 case "5":
                     //TODO: Print the number of students enrolled in valid courses
-                    
+
                     break;
 
                 case "6":
-                   //TODO: Add a student to the student List. Then add that student to a valid course
-                   this.AddStudent();
-                   break;
+                    //TODO: Add a student to the student List. Then add that student to a valid course
+                    this.AddStudent();
+                    break;
 
                 case "7":
                     //TODO: Print all students who first registered on a given year and a doing a given course
                     System.Console.WriteLine("Please enter a year");
-                    while(!int.TryParse(Console.ReadLine(), out num)) {
+                    while (!int.TryParse(Console.ReadLine(), out num))
+                    {
                         System.Console.WriteLine("Invalid, enter again");
                     }
 
                     int courseNum;
                     System.Console.WriteLine("Please enter the course number");
-                    while(!int.TryParse(Console.ReadLine(), out courseNum)) {
+                    while (!int.TryParse(Console.ReadLine(), out courseNum))
+                    {
                         System.Console.WriteLine("Invalid, enter again");
                     }
 
@@ -131,7 +140,7 @@ namespace CivSem1Challenge2_RegistrationSystem
 
 
 
-            
+
         }
 
 
@@ -173,27 +182,32 @@ namespace CivSem1Challenge2_RegistrationSystem
             sname = Console.ReadLine();
 
             System.Console.Write("Please enter student's year of birth: ");
-            while(!int.TryParse(Console.ReadLine(), out yob)) {
+            while (!int.TryParse(Console.ReadLine(), out yob))
+            {
                 System.Console.WriteLine("Invalid, enter again");
             }
 
             System.Console.Write("Please enter student's month of birth: ");
-            while(!int.TryParse(Console.ReadLine(), out mob)) {
+            while (!int.TryParse(Console.ReadLine(), out mob))
+            {
                 System.Console.WriteLine("Invalid, enter again");
             }
 
             System.Console.Write("Please enter student's date of birth: ");
-            while(!int.TryParse(Console.ReadLine(), out dob)) {
+            while (!int.TryParse(Console.ReadLine(), out dob))
+            {
                 System.Console.WriteLine("Invalid, enter again");
             }
 
             System.Console.Write("Please enter student's id/number: ");
-            while(!int.TryParse(Console.ReadLine(), out sno)) {
+            while (!int.TryParse(Console.ReadLine(), out sno))
+            {
                 System.Console.WriteLine("Invalid, enter again");
             }
 
             System.Console.Write("Please enter student's first year of registration: ");
-            while(!int.TryParse(Console.ReadLine(), out fyor)) {
+            while (!int.TryParse(Console.ReadLine(), out fyor))
+            {
                 System.Console.WriteLine("Invalid, enter again");
             }
 
