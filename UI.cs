@@ -256,6 +256,9 @@ namespace CivSem1Challenge2_RegistrationSystem
 
             //TODO: add student to the this.StudentList
 
+            Student s = new Student(fname, sname, yob, mob, dob, sno, fyor);
+            Students.Add(s);
+
             System.Console.Write("Enter course number to add the student to: ");
             //TODO: add the student to the desired course in this.Courses.  
             //      If the course doesn't exist let the user know and go back to the main menu.
@@ -263,9 +266,23 @@ namespace CivSem1Challenge2_RegistrationSystem
             // (optional - CREDIT TASK)  If the course doesn't exist keep asking until a valid course is entered.
             //                           User may enter 0000 for no course to be enrolled into
 
+            while (!int.TryParse(Console.ReadLine(), out courseno))
+            {
+                Console.WriteLine("Invalid, enter again.");
+            }
+            foreach (var course in Courses)
+            {
+                if (course.CourseNo == courseno)
+                {
+                    course.Enrolments.Add(s);
+                    Console.WriteLine($"Student enrolled in: {course.Name}");
+                    return;
+                }
+            }
+            Console.WriteLine("Course does not exist");
         }
 
-        //TODO: Create the GetUnerolledStudents method/function here
+    //TODO: Create the GetUnerolledStudents method/function here
 
-    }
+}
 }
