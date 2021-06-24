@@ -40,6 +40,11 @@ namespace CivSem1Challenge2_RegistrationSystem
             {
 
                 case "1":
+                    //Find list of courses
+                    //Loop through each course in the list
+                    //Write details of current course to console
+
+                    Console.WriteLine("List of courses...");
                     foreach (var course in this.Courses)
                     {
                         Console.WriteLine(course.GetCourseDetails());
@@ -159,8 +164,21 @@ namespace CivSem1Challenge2_RegistrationSystem
 
         private int CourseGetNumStudents(int num)
         {
-            //TODO: write code find the relevant courseNo in Courses and return the number of students/enrolments
-            // if num doesn't exist in Courses, return -1
+            //Get the list of courses
+            //Compare the current courneNo with num
+            //if they match
+                //return the count of the enrolment list of that couse
+            //if a match isnt found in the list
+                //return -1
+
+            foreach (var course in this.Courses)
+            {
+                if (course.CourseNo == num)
+                {
+                    return course.Enrolments.Count;
+                }
+            }
+
             return -1;
         }
 
