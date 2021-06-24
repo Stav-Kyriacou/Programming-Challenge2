@@ -89,8 +89,7 @@ namespace CivSem1Challenge2_RegistrationSystem
                     break;
 
                 case "5":
-                    //TODO: Print the number of students enrolled in valid courses
-
+                    Console.WriteLine($"Students in valid courses: {NumStudentsValidCourses()}");
                     break;
 
                 case "6":
@@ -197,6 +196,16 @@ namespace CivSem1Challenge2_RegistrationSystem
         private int GetNumStudents()
         {
             return Students.Count;
+        }
+        private int NumStudentsValidCourses()
+        {
+            int total = 0;
+
+            foreach (var course in Courses)
+            {
+                total += course.Enrolments.Count;
+            }
+            return total;
         }
 
         private void AddStudent()
