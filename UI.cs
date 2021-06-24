@@ -156,9 +156,22 @@ namespace CivSem1Challenge2_RegistrationSystem
 
         private string GetStudentName(int num)
         {
-            //TODO: write code find the relevant student in Students and return the student's first name and surname
-            // if num doesn't exist in Students, return null;
-            // should use the method GetFullName() from Student/Person to get the name
+            //get list of students
+            //loop through the list
+            //compare the studentNo of the current student with num
+            //if it matches
+                //return the full name of student
+            //if no matches found in the list
+                //return null
+
+            foreach (var student in Students)
+            {
+                if (student.StudentNo == num)
+                {
+                    return student.GetFullName();
+                }
+            }
+
             return null;
         }
 
