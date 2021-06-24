@@ -89,7 +89,7 @@ namespace CivSem1Challenge2_RegistrationSystem
                     break;
 
                 case "5":
-                    Console.WriteLine($"Students in valid courses: {NumStudentsValidCourses()}");
+                    PrintValidEnrolments();
                     break;
 
                 case "6":
@@ -147,6 +147,7 @@ namespace CivSem1Challenge2_RegistrationSystem
         }
 
 
+
         //TODO: create the GetNumStudents method/function here
 
 
@@ -158,9 +159,9 @@ namespace CivSem1Challenge2_RegistrationSystem
             //loop through the list
             //compare the studentNo of the current student with num
             //if it matches
-                //return the full name of student
+            //return the full name of student
             //if no matches found in the list
-                //return null
+            //return null
 
             foreach (var student in Students)
             {
@@ -178,9 +179,9 @@ namespace CivSem1Challenge2_RegistrationSystem
             //Get the list of courses
             //Compare the current courneNo with num
             //if they match
-                //return the count of the enrolment list of that couse
+            //return the count of the enrolment list of that couse
             //if a match isnt found in the list
-                //return -1
+            //return -1
 
             foreach (var course in this.Courses)
             {
@@ -192,22 +193,20 @@ namespace CivSem1Challenge2_RegistrationSystem
 
             return -1;
         }
-
         private int GetNumStudents()
         {
             return Students.Count;
         }
-        private int NumStudentsValidCourses()
+        private void PrintValidEnrolments()
         {
             int total = 0;
-
             foreach (var course in Courses)
             {
+                Console.WriteLine($"CourseNo: {course.CourseNo}, Enrolments: {course.Enrolments.Count}");
                 total += course.Enrolments.Count;
             }
-            return total;
+            Console.WriteLine($"Number of valid enrolments: {total}");
         }
-
         private void AddStudent()
         {
             string fname;
