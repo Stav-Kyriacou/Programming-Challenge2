@@ -93,7 +93,6 @@ namespace CivSem1Challenge2_RegistrationSystem
                     break;
 
                 case "6":
-                    //TODO: Add a student to the student List. Then add that student to a valid course
                     this.AddStudent();
                     break;
 
@@ -112,7 +111,7 @@ namespace CivSem1Challenge2_RegistrationSystem
                         System.Console.WriteLine("Invalid, enter again");
                     }
 
-                    //TODO: print the students who first registered in year num and are doing course courseNum
+                    PrintStudentsByFirstRegYear(num, courseNum);
 
                     break;
 
@@ -146,12 +145,27 @@ namespace CivSem1Challenge2_RegistrationSystem
 
         }
 
+        private void PrintStudentsByFirstRegYear(int num, int courseNum)
+        {
+            Console.WriteLine($"Printing Students from Course: {courseNum} who registered in the year: {num}");
+            int totalStudents = 0;
+            foreach (var course in Courses)
+            {
+                if (course.CourseNo == courseNum)
+                {
+                    foreach (var student in course.Enrolments)
+                    {
+                        if (student.FirstRegistrationYear == num)
+                        {
+                            Console.WriteLine(student.GetFullName());
+                            totalStudents++;
+                        }
+                    }
+                }
+            }
 
-
-        //TODO: create the GetNumStudents method/function here
-
-
-        //---------------------
+            Console.WriteLine($"Total Students: {totalStudents}");
+        }
 
         private string GetStudentName(int num)
         {
@@ -282,7 +296,7 @@ namespace CivSem1Challenge2_RegistrationSystem
             Console.WriteLine("Course does not exist");
         }
 
-    //TODO: Create the GetUnerolledStudents method/function here
+        //TODO: Create the GetUnerolledStudents method/function here
 
-}
+    }
 }
